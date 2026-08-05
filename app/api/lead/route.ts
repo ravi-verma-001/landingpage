@@ -34,6 +34,23 @@ export async function POST(request: Request) {
       saveLeads(leads)
     }
 
+    // Dispatch notification email to the owner
+    const ownerEmail = process.env.OWNER_EMAIL || process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
+    await sendEmail({
+      to: ownerEmail,
+      subject: `[New Lead Alert] ${name} from ${business}`,
+      body: `You have a new lead!
+
+Details:
+Name: ${name}
+Business Name: ${business}
+WhatsApp: ${phone}
+Email: ${email}
+Selected Services: ${needs.length ? needs.join(', ') : 'Not specified'}
+
+A safety net email (Email 1) has been sent to the client with the strategy session scheduler link.
+`,
+    })
 
     return NextResponse.json({ success: true, lead })
   } catch (error: any) {
@@ -41,3 +58,4 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: error.message || 'Internal Server Error' }, { status: 500 })
   }
 }
+

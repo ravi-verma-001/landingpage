@@ -23,6 +23,21 @@ export async function POST(request: Request) {
         body,
       })
 
+      // Dispatch booking notification to the owner
+      const ownerEmail = process.env.OWNER_EMAIL || process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
+      await sendEmail({
+        to: ownerEmail,
+        subject: `[Call Booked] Strategy Session scheduled by ${name || email}`,
+        body: `A lead has scheduled their Strategy Session!
+
+Details:
+Name: ${name || 'N/A'}
+Email: ${email}
+Selected Date: ${date}
+Selected Time: ${time}
+`,
+      })
+
       return NextResponse.json({ success: true })
     } else {
       return NextResponse.json({ error: 'Lead not found for email: ' + email }, { status: 404 })
