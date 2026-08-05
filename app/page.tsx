@@ -53,13 +53,13 @@ export default function Home() {
       <div className="hero-blast-wrapper">
         <div className="wrap">
           <div className="topbar">
-            <div className="brand"><span className="brand-dot"></span>PixelGrowth</div>
+            <div className="brand"><span className="brand-dot"></span>ArvianMarketing</div>
             <a className="top-cta-blast" href="#growth-plan">Get Free Growth Plan</a>
           </div>
 
           <div className="hero-blast-grid">
             <div className="hero-blast-left animate-fade-in">
-              <img src="/founder_portrait.jpg" alt="PixelGrowth Founder" className="hero-blast-img" />
+              <img src="/founder_portrait.jpg" alt="ArvianMarketing Founder" className="hero-blast-img" />
             </div>
 
             <div className="hero-blast-right animate-fade-in delay-1">
@@ -324,7 +324,7 @@ export default function Home() {
 
       <footer>
         <div className="wrap">
-          PixelGrowth — Websites, Social Media &amp; Ads for growing businesses.<br />
+          ArvianMarketing — Websites, Social Media &amp; Ads for growing businesses.<br />
           Prefer to just chat? <a className="footer-wa" href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>
         </div>
       </footer>

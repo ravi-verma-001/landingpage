@@ -68,7 +68,7 @@ I just received your details. To make sure we hit the ground running, grab a tim
 ${calendarLink}
 
 Talk soon,
-Founder, PixelGrowth
+Founder, ArvianMarketing
 `
 }
 
@@ -79,13 +79,13 @@ I wanted to share a quick insight on why most ad traffic bounces (and how to fix
 
 Most agencies run Meta ads that point directly to slow, generic pages. When traffic lands on a mobile phone, even a 2-second delay in page loading can cause up to 40% of users to bounce before they read a single line. This kills your ROAS (Return on Ad Spend).
 
-At PixelGrowth, we build lightning-fast web pages specifically designed to match our ads campaigns. For a recent client, reducing load times from 4.8 seconds down to 1.2 seconds lowered their cost-per-lead by 34% within the first week.
+At ArvianMarketing, we build lightning-fast web pages specifically designed to match our ads campaigns. For a recent client, reducing load times from 4.8 seconds down to 1.2 seconds lowered their cost-per-lead by 34% within the first week.
 
 If you want to review your speed and ad targeting, lock in a quick audit slot here:
 ${calendarLink}
 
 Talk soon,
-Founder, PixelGrowth
+Founder, ArvianMarketing
 `
 }
 
@@ -98,7 +98,7 @@ I'll close out your file, but if things change, here is my calendar link:
 ${calendarLink}
 
 Best of luck,
-Founder, PixelGrowth
+Founder, ArvianMarketing
 `
 }
 
@@ -117,7 +117,8 @@ We will review your landing page speed, social media presence, and Meta Ads plan
 If you need to reschedule, please let us know.
 
 Talk soon,
-Founder, PixelGrowth
+Founder, ArvianMarketing
 `
 }
+
 

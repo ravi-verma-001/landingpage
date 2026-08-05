@@ -59,42 +59,42 @@ function BookCallContent() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#123028', color: '#fff', fontFamily: 'sans-serif' }}>
+    <div style={{ minHeight: '100vh', background: '#040e29', color: '#fff', fontFamily: 'sans-serif' }}>
       <div className="wrap" style={{ padding: '60px 24px', maxWidth: '800px' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '24px', fontWeight: 'bold', color: '#FF7A45', marginBottom: '10px' }}>
-            PixelGrowth
+          <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '24px', fontWeight: 'bold', color: '#FF5B26', marginBottom: '10px' }}>
+            ArvianMarketing
           </div>
           <h1 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '36px', fontWeight: 'bold', marginBottom: '10px' }}>
             Divine Code Strategy Session
           </h1>
-          <p style={{ color: '#B9C6C0', fontSize: '16px' }}>
+          <p style={{ color: '#AEBFD1', fontSize: '16px' }}>
             30-minute free growth audit for {name ? <strong>{name}</strong> : 'your business'}
           </p>
         </div>
 
         {bookingStatus === 'success' ? (
-          <div style={{ background: '#fff', color: '#10151B', borderRadius: '16px', padding: '40px', textAlign: 'center', border: '1px solid #D6DBD6' }}>
+          <div style={{ background: '#08173f', color: '#fff', borderRadius: '16px', padding: '40px', textAlign: 'center', border: '1px solid rgba(255,255,255,0.08)' }}>
             <div style={{ fontSize: '48px', marginBottom: '20px' }}>🎉</div>
             <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '28px', marginBottom: '10px' }}>Booking Confirmed!</h2>
-            <p style={{ fontSize: '16px', color: '#4A544E', marginBottom: '24px' }}>
+            <p style={{ fontSize: '16px', color: '#AEBFD1', marginBottom: '24px' }}>
               We've locked in your strategy session for <strong>{selectedDate}</strong> at <strong>{selectedTime}</strong>.
             </p>
-            <p style={{ fontSize: '14px', color: '#4A544E', background: '#F1F3F1', padding: '12px', borderRadius: '8px' }}>
+            <p style={{ fontSize: '14px', color: '#AEBFD1', background: 'rgba(255,255,255,0.04)', padding: '12px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.06)' }}>
               Check your inbox ({email || 'your email'}) for calendar invitation and meeting link.
             </p>
             <button
               onClick={() => router.push('/')}
-              style={{ marginTop: '30px', background: '#1F4B3F', color: '#fff', border: 'none', padding: '12px 24px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold' }}
+              style={{ marginTop: '30px', background: '#FF5B26', color: '#fff', border: 'none', padding: '12px 24px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold' }}
             >
               Back to Home
             </button>
           </div>
         ) : (
-          <div style={{ background: '#fff', color: '#10151B', borderRadius: '16px', overflow: 'hidden', display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '400px', border: '1px solid #D6DBD6' }}>
+          <div style={{ background: '#08173f', color: '#fff', borderRadius: '16px', overflow: 'hidden', display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '400px', border: '1px solid rgba(255,255,255,0.08)' }}>
             {/* Left side: Date Select */}
-            <div style={{ padding: '30px', borderRight: '1px solid #E5E7EB' }}>
-              <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '20px', color: '#123028' }}>Select Date</h3>
+            <div style={{ padding: '30px', borderRight: '1px solid rgba(255,255,255,0.08)' }}>
+              <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '20px', color: '#fff' }}>Select Date</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 {availableDates.map((date) => {
                   const dateStr = date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
@@ -105,10 +105,10 @@ function BookCallContent() {
                       style={{
                         padding: '12px',
                         borderRadius: '8px',
-                        border: '1px solid #D6DBD6',
+                        border: '1px solid rgba(255,255,255,0.08)',
                         textAlign: 'left',
-                        background: selectedDate === dateStr ? '#1F4B3F' : '#fff',
-                        color: selectedDate === dateStr ? '#fff' : '#10151B',
+                        background: selectedDate === dateStr ? '#FF5B26' : 'rgba(255,255,255,0.04)',
+                        color: '#fff',
                         cursor: 'pointer',
                         fontWeight: '500',
                         transition: 'all 0.2s'
@@ -122,11 +122,11 @@ function BookCallContent() {
             </div>
 
             {/* Right side: Time Select & Confirm */}
-            <div style={{ padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div style={{ padding: '30px', display: 'flex', flexDirection: 'column', justifycontent: 'space-between' }}>
               <div>
-                <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '20px', color: '#123028' }}>Select Time</h3>
+                <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '20px', color: '#fff' }}>Select Time</h3>
                 {!selectedDate ? (
-                  <p style={{ color: '#9CA3AF', fontSize: '14px' }}>Please choose a date first</p>
+                  <p style={{ color: '#AEBFD1', fontSize: '14px' }}>Please choose a date first</p>
                 ) : (
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '8px' }}>
                     {timeSlots.map((time) => (
@@ -136,9 +136,9 @@ function BookCallContent() {
                         style={{
                           padding: '10px',
                           borderRadius: '8px',
-                          border: '1px solid #D6DBD6',
-                          background: selectedTime === time ? '#FF7A45' : '#fff',
-                          color: selectedTime === time ? '#fff' : '#10151B',
+                          border: '1px solid rgba(255,255,255,0.08)',
+                          background: selectedTime === time ? '#FF5B26' : 'rgba(255,255,255,0.04)',
+                          color: '#fff',
                           cursor: 'pointer',
                           fontWeight: '500',
                           transition: 'all 0.2s'
@@ -158,7 +158,7 @@ function BookCallContent() {
                     disabled={bookingStatus === 'loading'}
                     style={{
                       width: '100%',
-                      background: '#1F4B3F',
+                      background: '#FF5B26',
                       color: '#fff',
                       border: 'none',
                       padding: '14px',
@@ -176,6 +176,7 @@ function BookCallContent() {
         )}
       </div>
     </div>
+
   )
 }
 

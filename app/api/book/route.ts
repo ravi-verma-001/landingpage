@@ -19,7 +19,7 @@ export async function POST(request: Request) {
       const body = getBookingConfirmationContent(name || 'there', date, time)
       await sendEmail({
         to: email,
-        subject: 'Strategy Session Confirmed — PixelGrowth',
+        subject: 'Strategy Session Confirmed — ArvianMarketing',
         body,
       })
 
