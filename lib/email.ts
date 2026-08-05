@@ -9,13 +9,18 @@ const emailLogsDir = path.join(process.cwd(), 'data')
 const emailLogFile = path.join(emailLogsDir, 'sent-emails-log.txt')
 
 function ensureLogDirExists() {
-  if (!fs.existsSync(emailLogsDir)) {
-    fs.mkdirSync(emailLogsDir, { recursive: true })
+  try {
+    if (!fs.existsSync(emailLogsDir)) {
+      fs.mkdirSync(emailLogsDir, { recursive: true })
+    }
+  } catch (error) {
+    // Fail silently on serverless read-only filesystem
   }
 }
 
 // Log a mock email to a file for testing and visibility
 function logEmailLocally(to: string, subject: string, body: string) {
+  console.log(`[EMAIL PREVIEW] To: ${to} | Subject: ${subject}\n${body}`)
   ensureLogDirExists()
   const logMessage = `
 =========================================
@@ -26,9 +31,14 @@ SUBJECT: ${subject}
 ${body}
 =========================================
 `
-  fs.appendFileSync(emailLogFile, logMessage, 'utf-8')
-  console.log(`[EMAIL LOGGED LOCALLY] To: ${to} | Subject: ${subject}`)
+  try {
+    fs.appendFileSync(emailLogFile, logMessage, 'utf-8')
+    console.log(`[EMAIL LOGGED LOCALLY] To: ${to} | Subject: ${subject}`)
+  } catch (error) {
+    console.warn('[EMAIL FS LOGGING SKIPPED] File system is read-only (Serverless environment).')
+  }
 }
+
 
 export async function sendEmail({
   to,
