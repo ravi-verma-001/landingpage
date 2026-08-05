@@ -184,68 +184,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" id="proof" style={{ background: 'rgba(31, 75, 63, 0.03)', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
-        <div className="wrap">
-          <div className="section-head">
-            <span className="section-tag">Proof &amp; Results</span>
-            <h2>Real growth for real Indian businesses</h2>
-            <p>We don't sell generic reports. Here is how we've helped founders scale their online presence and client bookings.</p>
-          </div>
-
-          <div className="proof-grid">
-            <div className="proof-card">
-              <div>
-                <div className="rating-stars">★★★★★</div>
-                <p className="proof-quote">"We were struggling to get online consultation bookings. PixelGrowth rebuilt our mobile landing page and ran targeted Instagram Ads. We started getting high-quality bookings from day two."</p>
-              </div>
-              <div>
-                <div className="proof-metric">+310% Bookings</div>
-                <div className="client-profile">
-                  <div className="client-avatar">SC</div>
-                  <div className="client-info">
-                    <h4>Dr. Amit Verma</h4>
-                    <span>Founder, The Skin Clinic (Delhi)</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="proof-card">
-              <div>
-                <div className="rating-stars">★★★★★</div>
-                <p className="proof-quote">"Having one person manage our design, posts, and Meta Ads has been a game-changer. Our Instagram page feels premium, and our return on ad spend jumped immediately."</p>
-              </div>
-              <div>
-                <div className="proof-metric">3.5x Follower Growth</div>
-                <div className="client-profile">
-                  <div className="client-avatar">OF</div>
-                  <div className="client-info">
-                    <h4>Priyanka Sen</h4>
-                    <span>Co-Founder, Organic Nourish</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="proof-card">
-              <div>
-                <div className="rating-stars">★★★★★</div>
-                <p className="proof-quote">"Our custom portfolio site loads instantly now. Leads flow directly into our booking pipeline, and the automated email follow-ups do the hard work of converting clients."</p>
-              </div>
-              <div>
-                <div className="proof-metric">40% Lead Lift</div>
-                <div className="client-profile">
-                  <div className="client-avatar">SL</div>
-                  <div className="client-info">
-                    <h4>Rohan Mehta</h4>
-                    <span>Principal, Space &amp; Line Architects</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
 
       <div className="wrap">
