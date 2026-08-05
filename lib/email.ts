@@ -39,15 +39,17 @@ export async function sendEmail({
   subject: string
   body: string
 }) {
+  const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
+  
   if (resend) {
     try {
       await resend.emails.send({
-        from: 'PixelGrowth <founders@pixelgrowth.in>', // Note: in production, requires a verified domain on Resend
+        from: fromEmail,
         to,
         subject,
         text: body,
       })
-      console.log(`[RESEND EMAIL SENT] To: ${to} | Subject: ${subject}`)
+      console.log(`[RESEND EMAIL SENT] To: ${to} | Subject: ${subject} | From: ${fromEmail}`)
     } catch (error) {
       console.error('[RESEND EMAIL FAILED, FALLING BACK TO LOCAL LOG]', error)
       logEmailLocally(to, subject, body)
@@ -99,3 +101,23 @@ Best of luck,
 Founder, PixelGrowth
 `
 }
+
+export function getBookingConfirmationContent(name: string, date: string, time: string) {
+  return `Hi ${name},
+
+Your Strategy Session has been successfully booked!
+
+Details of your meeting:
+Date: ${date}
+Time: ${time}
+Format: 30-minute Video Call (meeting link will be sent shortly)
+
+We will review your landing page speed, social media presence, and Meta Ads plan to map out a custom growth strategy.
+
+If you need to reschedule, please let us know.
+
+Talk soon,
+Founder, PixelGrowth
+`
+}
+
