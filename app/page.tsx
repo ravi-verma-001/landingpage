@@ -59,7 +59,7 @@ export default function Home() {
 
           <div className="hero-blast-grid">
             <div className="hero-blast-left animate-fade-in">
-              <img src="/founder_portrait.png" alt="PixelGrowth Founder" className="hero-blast-img" />
+              <img src="/founder_portrait.jpg" alt="PixelGrowth Founder" className="hero-blast-img" />
             </div>
 
             <div className="hero-blast-right animate-fade-in delay-1">
