@@ -20,34 +20,44 @@ export interface Lead {
   lastSequenceTime: string | null
 }
 
+let inMemoryLeads: Lead[] = []
+
 function ensureFileExists() {
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true })
-  }
-  if (!fs.existsSync(filePath)) {
-    fs.writeFileSync(filePath, JSON.stringify([], null, 2), 'utf-8')
+  try {
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true })
+    }
+    if (!fs.existsSync(filePath)) {
+      fs.writeFileSync(filePath, JSON.stringify([], null, 2), 'utf-8')
+    }
+  } catch (error) {
+    console.warn('Filesystem is read-only (Serverless environment). Falling back to in-memory storage.')
   }
 }
 
 export function getLeads(): Lead[] {
   ensureFileExists()
   try {
-    const data = fs.readFileSync(filePath, 'utf-8')
-    return JSON.parse(data)
+    if (fs.existsSync(filePath)) {
+      const data = fs.readFileSync(filePath, 'utf-8')
+      return JSON.parse(data)
+    }
   } catch (error) {
-    console.error('Error reading leads file:', error)
-    return []
+    console.warn('Error reading leads file, using in-memory backup:', error)
   }
+  return inMemoryLeads
 }
 
 export function saveLeads(leads: Lead[]): void {
+  inMemoryLeads = leads
   ensureFileExists()
   try {
     fs.writeFileSync(filePath, JSON.stringify(leads, null, 2), 'utf-8')
   } catch (error) {
-    console.error('Error writing leads file:', error)
+    console.warn('Error writing leads file (expected on read-only serverless platforms like Netlify):', error)
   }
 }
+
 
 export function addLead(leadData: Omit<Lead, 'id' | 'createdAt' | 'booked' | 'sequenceStatus' | 'emailsSent' | 'lastSequenceTime'>): Lead {
   const leads = getLeads()
