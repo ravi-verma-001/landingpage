@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { addLead } from '@/lib/db'
+import { addLead, getLeads, saveLeads } from '@/lib/db'
 import { sendEmail, getEmail1Content } from '@/lib/email'
 
 export async function POST(request: Request) {
@@ -26,7 +26,6 @@ export async function POST(request: Request) {
     })
 
     // Log tracking for email sequence
-    const { getLeads, saveLeads } = require('@/lib/db')
     const leads = getLeads()
     const index = leads.findIndex((l: any) => l.email.toLowerCase() === email.toLowerCase())
     if (index !== -1) {
@@ -34,6 +33,7 @@ export async function POST(request: Request) {
       leads[index].lastSequenceTime = new Date().toISOString()
       saveLeads(leads)
     }
+
 
     return NextResponse.json({ success: true, lead })
   } catch (error: any) {
