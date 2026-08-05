@@ -122,7 +122,7 @@ function BookCallContent() {
             </div>
 
             {/* Right side: Time Select & Confirm */}
-            <div style={{ padding: '30px', display: 'flex', flexDirection: 'column', justifycontent: 'space-between' }}>
+            <div style={{ padding: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '20px', color: '#fff' }}>Select Time</h3>
                 {!selectedDate ? (
