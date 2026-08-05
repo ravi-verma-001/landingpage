@@ -184,7 +184,50 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section" id="work" style={{ borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+        <div className="wrap">
+          <div className="section-head">
+            <span className="section-tag">Our Work &amp; Results</span>
+            <h2>Proven results we've delivered for clients</h2>
+            <p>Active Meta Ads dashboards displaying campaign metrics, reach, and cost-per-lead optimization.</p>
+          </div>
 
+          <div className="work-grid">
+            <div className="work-card">
+              <div className="work-image-container">
+                <img src="/work/work1.jpg" alt="Meta Ads Campaign Dashboard" className="work-img" />
+              </div>
+              <div className="work-info">
+                <span className="work-badge">Campaign Lead Generation</span>
+                <h3>Lead Campaign (ANUSHKA)</h3>
+                <p>Delivered 2,767 messaging conversion results at ₹23.52 per lead with budget optimization.</p>
+              </div>
+            </div>
+
+            <div className="work-card">
+              <div className="work-image-container">
+                <img src="/work/work2.jpg" alt="Facebook Ads Manager Conversions" className="work-img" />
+              </div>
+              <div className="work-info">
+                <span className="work-badge">Audience &amp; Conversion Scaling</span>
+                <h3>Conversions Campaign (DEVKI)</h3>
+                <p>149k reach results delivered for active custom audience segments starting at ₹200/day budget.</p>
+              </div>
+            </div>
+
+            <div className="work-card">
+              <div className="work-image-container">
+                <img src="/work/work3.jpg" alt="Meta Ad Sets Operations" className="work-img" />
+              </div>
+              <div className="work-info">
+                <span className="work-badge">Ongoing Optimization</span>
+                <h3>Active Campaign Manager</h3>
+                <p>Real-time client scaling dashboard demonstrating consistent low cost-per-result across 22 active campaigns.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <div className="wrap">
         <div className="form-section" id="growth-plan">
