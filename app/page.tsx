@@ -54,7 +54,7 @@ export default function Home() {
         <div className="wrap">
           <div className="topbar">
             <div className="brand">
-              <img src="/logo.png" alt="Arvian Marketing Logo" style={{ height: '42px', width: 'auto', objectFit: 'contain' }} />
+              <img src="/logo.png" alt="Arvian Marketing Logo" style={{ height: '60px', width: 'auto', objectFit: 'contain' }} />
             </div>
             <a className="top-cta-blast" href="#growth-plan">Get Free Growth Plan</a>
           </div>
