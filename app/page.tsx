@@ -325,13 +325,13 @@ export default function Home() {
       <footer>
         <div className="wrap">
           ArvianMarketing — Websites, Social Media &amp; Ads for growing businesses.<br />
-          Prefer to just chat? <a className="footer-wa" href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>
+          Prefer to just chat? <a className="footer-wa" href="https://wa.me/919711190678" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>
         </div>
       </footer>
 
       {/* Floating WhatsApp Bubble */}
       <a
-        href="https://wa.me/919876543210"
+        href="https://wa.me/919711190678"
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"
