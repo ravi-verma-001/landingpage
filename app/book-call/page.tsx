@@ -59,10 +59,10 @@ function BookCallContent() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#040e29', color: '#fff', fontFamily: 'sans-serif' }}>
+    <div style={{ minHeight: '100vh', background: '#090714', color: '#fff', fontFamily: 'sans-serif' }}>
       <div className="wrap" style={{ padding: '60px 24px', maxWidth: '800px' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '24px', fontWeight: 'bold', color: '#FF5B26', marginBottom: '10px' }}>
+          <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '24px', fontWeight: 'bold', color: '#A78BFA', marginBottom: '10px' }}>
             ArvianMarketing
           </div>
           <h1 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '36px', fontWeight: 'bold', marginBottom: '10px' }}>
@@ -74,7 +74,7 @@ function BookCallContent() {
         </div>
 
         {bookingStatus === 'success' ? (
-          <div style={{ background: '#08173f', color: '#fff', borderRadius: '16px', padding: '40px', textAlign: 'center', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <div style={{ background: '#120e26', color: '#fff', borderRadius: '16px', padding: '40px', textAlign: 'center', border: '1px solid rgba(255,255,255,0.08)' }}>
             <div style={{ fontSize: '48px', marginBottom: '20px' }}>🎉</div>
             <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '28px', marginBottom: '10px' }}>Booking Confirmed!</h2>
             <p style={{ fontSize: '16px', color: '#AEBFD1', marginBottom: '24px' }}>
@@ -85,13 +85,13 @@ function BookCallContent() {
             </p>
             <button
               onClick={() => router.push('/')}
-              style={{ marginTop: '30px', background: '#FF5B26', color: '#fff', border: 'none', padding: '12px 24px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold' }}
+              style={{ marginTop: '30px', background: '#7C3AED', color: '#fff', border: 'none', padding: '12px 24px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold' }}
             >
               Back to Home
             </button>
           </div>
         ) : (
-          <div style={{ background: '#08173f', color: '#fff', borderRadius: '16px', overflow: 'hidden', display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '400px', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <div style={{ background: '#120e26', color: '#fff', borderRadius: '16px', overflow: 'hidden', display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '400px', border: '1px solid rgba(255,255,255,0.08)' }}>
             {/* Left side: Date Select */}
             <div style={{ padding: '30px', borderRight: '1px solid rgba(255,255,255,0.08)' }}>
               <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '20px', color: '#fff' }}>Select Date</h3>
@@ -107,7 +107,7 @@ function BookCallContent() {
                         borderRadius: '8px',
                         border: '1px solid rgba(255,255,255,0.08)',
                         textAlign: 'left',
-                        background: selectedDate === dateStr ? '#FF5B26' : 'rgba(255,255,255,0.04)',
+                        background: selectedDate === dateStr ? '#7C3AED' : 'rgba(255,255,255,0.04)',
                         color: '#fff',
                         cursor: 'pointer',
                         fontWeight: '500',
@@ -137,7 +137,7 @@ function BookCallContent() {
                           padding: '10px',
                           borderRadius: '8px',
                           border: '1px solid rgba(255,255,255,0.08)',
-                          background: selectedTime === time ? '#FF5B26' : 'rgba(255,255,255,0.04)',
+                          background: selectedTime === time ? '#7C3AED' : 'rgba(255,255,255,0.04)',
                           color: '#fff',
                           cursor: 'pointer',
                           fontWeight: '500',
@@ -158,7 +158,7 @@ function BookCallContent() {
                     disabled={bookingStatus === 'loading'}
                     style={{
                       width: '100%',
-                      background: '#FF5B26',
+                      background: '#7C3AED',
                       color: '#fff',
                       border: 'none',
                       padding: '14px',

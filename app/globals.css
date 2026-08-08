@@ -5,15 +5,15 @@
 @tailwind utilities;
 
 :root {
-  --bg: #040e29;
+  --bg: #090714;
   --ink: #FFFFFF;
-  --ink-soft: #AEBFD1;
-  --primary: #FF5B26;
-  --primary-deep: #02091e;
-  --accent: #FF5B26;
-  --gold: #FF7A45;
-  --line: rgba(255, 255, 255, 0.08);
-  --card: #08173f;
+  --ink-soft: #AEB5D1;
+  --primary: #7C3AED;
+  --primary-deep: #05030a;
+  --accent: #6366F1;
+  --gold: #A78BFA;
+  --line: rgba(255, 255, 255, 0.06);
+  --card: #120e26;
 }
 
 * {
@@ -628,15 +628,15 @@ footer {
 
 /* Blast Design Hero Theme Styles */
 .hero-blast-wrapper {
-  background: #040e29;
+  background: radial-gradient(ellipse at top, #1a123f 0%, var(--bg) 80%);
   color: #ffffff;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--line);
 }
 
 .hero-blast-wrapper .topbar {
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
   padding: 16px 0;
 }
 
@@ -647,18 +647,18 @@ footer {
 .top-cta-blast {
   font-size: 14px;
   font-weight: 600;
-  background: #FF5B26;
+  background: var(--primary);
   color: #fff;
   padding: 10px 20px;
   border-radius: 8px;
   text-decoration: none;
-  border: 1px solid #FF5B26;
+  border: 1px solid var(--primary);
   transition: all 0.2s ease;
 }
 
 .top-cta-blast:hover {
-  background: #e04a1b;
-  border-color: #e04a1b;
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .hero-blast-grid {
@@ -705,7 +705,9 @@ footer {
 }
 
 .hero-blast-right h1 span {
-  color: #FF5B26;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-blast-right p.sub {
@@ -716,7 +718,7 @@ footer {
 }
 
 .blast-cta-btn {
-  background: #FF5B26;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
   color: #ffffff;
   font-weight: 600;
   font-size: 16px;
@@ -733,9 +735,9 @@ footer {
 }
 
 .blast-cta-btn:hover {
-  background: #e04a1b;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 91, 38, 0.3);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
 }
 
 .trustpilot-widget {
@@ -779,7 +781,7 @@ footer {
 
 .blast-shape {
   position: absolute;
-  background: linear-gradient(135deg, #FF5B26 0%, #FF7A45 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
   border-radius: 100px;
   transform: rotate(-45deg);
 }
