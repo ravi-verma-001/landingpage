@@ -5,15 +5,15 @@
 @tailwind utilities;
 
 :root {
-  --bg: #090714;
-  --ink: #FFFFFF;
-  --ink-soft: #AEB5D1;
+  --bg: #FFFFFF;
+  --ink: #0F172A;
+  --ink-soft: #475569;
   --primary: #7C3AED;
-  --primary-deep: #05030a;
+  --primary-deep: #F8FAFC;
   --accent: #6366F1;
-  --gold: #A78BFA;
-  --line: rgba(255, 255, 255, 0.06);
-  --card: #120e26;
+  --gold: #4F46E5;
+  --line: rgba(15, 23, 42, 0.08);
+  --card: #FFFFFF;
 }
 
 * {
@@ -248,6 +248,8 @@ a {
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 28px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+  transition: all 0.3s ease;
 }
 
 .service-icon {
@@ -358,7 +360,7 @@ a {
   gap: 10px;
   align-items: flex-start;
   font-size: 13.5px;
-  color: #B9C6C0;
+  color: var(--ink-soft);
 }
 
 form {
@@ -367,6 +369,7 @@ form {
   padding: 26px;
   color: var(--ink);
   border: 1px solid var(--line);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
 }
 
 .field {
@@ -389,7 +392,7 @@ form {
   font-size: 14px;
   font-family: 'Inter', sans-serif;
   color: var(--ink);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(15, 23, 42, 0.03);
 }
 
 .field input:focus, .field select:focus {
@@ -628,20 +631,20 @@ footer {
 
 /* Blast Design Hero Theme Styles */
 .hero-blast-wrapper {
-  background: radial-gradient(ellipse at top, #1a123f 0%, var(--bg) 80%);
-  color: #ffffff;
+  background: radial-gradient(ellipse at top, #f5f3ff 0%, var(--bg) 80%);
+  color: var(--ink);
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
 }
 
 .hero-blast-wrapper .topbar {
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid var(--line);
   padding: 16px 0;
 }
 
 .hero-blast-wrapper .brand {
-  color: #ffffff;
+  color: var(--ink);
 }
 
 .top-cta-blast {
@@ -700,7 +703,7 @@ footer {
   font-size: 46px;
   font-weight: 700;
   line-height: 1.15;
-  color: #ffffff;
+  color: var(--ink);
   letter-spacing: -0.02em;
 }
 
