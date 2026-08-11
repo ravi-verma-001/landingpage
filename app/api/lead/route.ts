@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     const lead = addLead({ name, business, phone, email, needs })
 
     // Generate custom booking calendar link to prefill their details
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://arvianmarketing.shop')
     const calendarLink = `${baseUrl}/book-call?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&business=${encodeURIComponent(business)}`
 
     // Trigger Email 1 (Immediate Safety Net)

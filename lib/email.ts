@@ -49,7 +49,7 @@ export async function sendEmail({
   subject: string
   body: string
 }) {
-  const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
+  const fromEmail = process.env.RESEND_FROM_EMAIL || 'ArvianMarketing <bookings@arvianmarketing.shop>'
   
   if (resend) {
     try {
