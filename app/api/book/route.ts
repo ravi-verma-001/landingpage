@@ -38,6 +38,28 @@ Selected Time: ${time}
 `,
       })
 
+      // Dispatch webhook to Google Sheets / Zapier if configured
+      const webhookUrl = process.env.WEBHOOK_URL
+      if (webhookUrl) {
+        try {
+          await fetch(webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              event: 'booking_confirmed',
+              name: name || 'N/A',
+              email,
+              date,
+              time,
+              confirmedAt: new Date().toISOString()
+            })
+          })
+          console.log(`[WEBHOOK SUCCESS] Booking dispatched to ${webhookUrl}`)
+        } catch (webhookError) {
+          console.error('[WEBHOOK ERROR]', webhookError)
+        }
+      }
+
       return NextResponse.json({ success: true })
     } else {
       return NextResponse.json({ error: 'Lead not found for email: ' + email }, { status: 404 })

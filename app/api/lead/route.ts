@@ -52,6 +52,29 @@ A safety net email (Email 1) has been sent to the client with the strategy sessi
 `,
     })
 
+    // Dispatch webhook to Google Sheets / Zapier if configured
+    const webhookUrl = process.env.WEBHOOK_URL
+    if (webhookUrl) {
+      try {
+        await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            event: 'lead_captured',
+            name,
+            business,
+            phone,
+            email,
+            needs: needs.join(', '),
+            createdAt: new Date().toISOString()
+          })
+        })
+        console.log(`[WEBHOOK SUCCESS] Lead dispatched to ${webhookUrl}`)
+      } catch (webhookError) {
+        console.error('[WEBHOOK ERROR]', webhookError)
+      }
+    }
+
     return NextResponse.json({ success: true, lead })
   } catch (error: any) {
     console.error('Error handling lead submission:', error)
