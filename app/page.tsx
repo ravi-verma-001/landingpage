@@ -325,9 +325,17 @@ export default function Home() {
       </div>
 
       <footer>
-        <div className="wrap">
-          ArvianMarketing — Websites, Social Media &amp; Ads for growing businesses.<br />
-          Prefer to just chat? <a className="footer-wa" href="https://wa.me/919711190678" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>
+        <div className="wrap" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+          <div>
+            ArvianMarketing — Websites, Social Media &amp; Ads for growing businesses.
+          </div>
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <a className="footer-wa" href="https://wa.me/919711190678" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>
+            <span style={{ opacity: 0.3 }}>|</span>
+            <a href="/privacy-policy" style={{ textDecoration: 'underline' }}>Privacy Policy</a>
+            <span style={{ opacity: 0.3 }}>|</span>
+            <a href="/terms" style={{ textDecoration: 'underline' }}>Terms &amp; Conditions</a>
+          </div>
         </div>
       </footer>
 
