@@ -40,6 +40,15 @@ export default function LeadForm() {
         throw new Error('Something went wrong. Please try again.')
       }
 
+      // Fire custom GA4 event for lead conversion tracking
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'generate_lead', {
+          business_name: formData.business,
+          email: formData.email,
+          services: formData.needs.join(', ')
+        })
+      }
+
       // Success! Immediately redirect to the calendar page
       router.push(`/book-call?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&business=${encodeURIComponent(formData.business)}`)
     } catch (err: any) {
