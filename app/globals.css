@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,13 +27,13 @@ html {
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-plus-jakarta), sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3 {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-outfit), sans-serif;
   color: var(--ink);
   letter-spacing: -0.01em;
 }
@@ -45,7 +43,7 @@ a {
 }
 
 .mono {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono), monospace;
 }
 
 .wrap {
@@ -932,6 +930,18 @@ footer {
   height: 60px;
   text-decoration: none;
   transition: all 0.3s ease;
+}
+
+.whatsapp-float::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #25D366;
+  border-radius: 50%;
+  z-index: -1;
+  top: 0;
+  left: 0;
   animation: wa-pulse 2s infinite;
 }
 
@@ -949,13 +959,12 @@ footer {
 
 @keyframes wa-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
-  }
-  70% {
-    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    transform: scale(1);
+    opacity: 0.8;
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    transform: scale(1.6);
+    opacity: 0;
   }
 }
 

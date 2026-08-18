@@ -1,67 +1,37 @@
-'use client'
-
-import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import React from 'react'
+import Image from 'next/image'
+import LeadForm from '@/components/LeadForm'
 
 export default function Home() {
-  const router = useRouter()
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
-  const [formData, setFormData] = useState({
-    name: '',
-    business: '',
-    phone: '',
-    email: '',
-    needs: [] as string[]
-  })
-
-  const handleCheckboxChange = (need: string) => {
-    setFormData(prev => {
-      const needs = prev.needs.includes(need)
-        ? prev.needs.filter(n => n !== need)
-        : [...prev.needs, need]
-      return { ...prev, needs }
-    })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
-    setError('')
-
-    try {
-      const res = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      })
-
-      if (!res.ok) {
-        throw new Error('Something went wrong. Please try again.')
-      }
-
-      // Success! Immediately redirect to the calendar page
-      router.push(`/book-call?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&business=${encodeURIComponent(formData.business)}`)
-    } catch (err: any) {
-      setError(err.message || 'Failed to submit. Please check your connection.')
-      setLoading(false)
-    }
-  }
-
   return (
     <>
       <div className="hero-blast-wrapper">
         <div className="wrap">
           <div className="topbar">
             <div className="brand">
-              <img src="/logo.png" alt="Arvian Marketing Logo" style={{ height: '60px', width: 'auto', objectFit: 'contain' }} />
+              <Image 
+                src="/logo.webp" 
+                alt="Arvian Marketing Logo" 
+                width={232} 
+                height={60} 
+                style={{ objectFit: 'contain' }} 
+                priority 
+              />
             </div>
             <a className="top-cta-blast" href="#growth-plan">Get Free Growth Plan</a>
           </div>
 
           <div className="hero-blast-grid">
             <div className="hero-blast-left animate-fade-in">
-              <img src="/founder_portrait.jpg" alt="ArvianMarketing Founder" className="hero-blast-img" />
+              <Image 
+                src="/founder_portrait.webp" 
+                alt="ArvianMarketing Founder" 
+                className="hero-blast-img" 
+                width={440} 
+                height={587} 
+                priority 
+                sizes="(max-width: 768px) 100vw, 440px"
+              />
             </div>
 
             <div className="hero-blast-right animate-fade-in delay-1">
@@ -115,7 +85,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
 
       <section className="section" id="services">
         <div className="wrap">
@@ -197,7 +166,14 @@ export default function Home() {
           <div className="work-grid">
             <div className="work-card">
               <div className="work-image-container">
-                <img src="/work/work1.jpg" alt="Meta Ads Campaign Dashboard" className="work-img" />
+                <Image 
+                  src="/work/work1.webp" 
+                  alt="Meta Ads Campaign Dashboard" 
+                  className="work-img" 
+                  width={1024} 
+                  height={576} 
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
               <div className="work-info">
                 <span className="work-badge">Campaign Lead Generation</span>
@@ -208,7 +184,14 @@ export default function Home() {
 
             <div className="work-card">
               <div className="work-image-container">
-                <img src="/work/work2.jpg" alt="Facebook Ads Manager Conversions" className="work-img" />
+                <Image 
+                  src="/work/work2.webp" 
+                  alt="Facebook Ads Manager Conversions" 
+                  className="work-img" 
+                  width={1024} 
+                  height={576} 
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
               <div className="work-info">
                 <span className="work-badge">Audience &amp; Conversion Scaling</span>
@@ -219,7 +202,14 @@ export default function Home() {
 
             <div className="work-card">
               <div className="work-image-container">
-                <img src="/work/work3.jpg" alt="Meta Ad Sets Operations" className="work-img" />
+                <Image 
+                  src="/work/work3.webp" 
+                  alt="Meta Ad Sets Operations" 
+                  className="work-img" 
+                  width={1024} 
+                  height={576} 
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
               <div className="work-info">
                 <span className="work-badge">Ongoing Optimization</span>
@@ -232,96 +222,7 @@ export default function Home() {
       </section>
 
       <div className="wrap">
-        <div className="form-section" id="growth-plan">
-          <div className="form-side">
-            <h2>Get your free growth plan</h2>
-            <p>Tell us a bit about your business. We'll reply within a few hours with a plan — no obligation.</p>
-            <div className="form-note">✓ No cost, no pressure — just a plan you can use, even if you don't hire us.</div>
-            <div className="form-note">✓ Tailored strategy mapped out personally by our founder.</div>
-          </div>
-
-          <form onSubmit={handleSubmit}>
-            <div className="field">
-              <label htmlFor="name">Your name</label>
-              <input
-                type="text"
-                id="name"
-                required
-                placeholder="e.g. Ravi Sharma"
-                value={formData.name}
-                onChange={e => setFormData({ ...formData, name: e.target.value })}
-              />
-            </div>
-            <div className="field">
-              <label htmlFor="business">Business name</label>
-              <input
-                type="text"
-                id="business"
-                required
-                placeholder="e.g. Sharma Skincare"
-                value={formData.business}
-                onChange={e => setFormData({ ...formData, business: e.target.value })}
-              />
-            </div>
-            <div className="field">
-              <label htmlFor="phone">WhatsApp number</label>
-              <input
-                type="tel"
-                id="phone"
-                required
-                placeholder="e.g. 98765 43210"
-                value={formData.phone}
-                onChange={e => setFormData({ ...formData, phone: e.target.value })}
-              />
-            </div>
-            <div className="field">
-              <label htmlFor="email">Email address</label>
-              <input
-                type="email"
-                id="email"
-                required
-                placeholder="e.g. ravi@example.com"
-                value={formData.email}
-                onChange={e => setFormData({ ...formData, email: e.target.value })}
-              />
-            </div>
-            <div className="field">
-              <label>What do you need help with?</label>
-              <div className="checks">
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={formData.needs.includes('Website')}
-                    onChange={() => handleCheckboxChange('Website')}
-                  />{' '}
-                  Website Design
-                </label>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={formData.needs.includes('Social Media')}
-                    onChange={() => handleCheckboxChange('Social Media')}
-                  />{' '}
-                  Social Media Handling
-                </label>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={formData.needs.includes('Meta Ads')}
-                    onChange={() => handleCheckboxChange('Meta Ads')}
-                  />{' '}
-                  Meta Ads Management
-                </label>
-              </div>
-            </div>
-
-            {error && <div style={{ color: '#FF7A45', fontSize: '14px', marginBottom: '12px' }}>{error}</div>}
-
-            <button type="submit" disabled={loading} className="submit-btn">
-              {loading ? 'Sending Details...' : 'Continue to Strategy Session →'}
-            </button>
-          </form>
-        </div>
+        <LeadForm />
       </div>
 
       <footer>
