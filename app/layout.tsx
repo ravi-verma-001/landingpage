@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Outfit, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import MetaPixel from '@/components/MetaPixel'
 import './globals.css'
 
 const outfit = Outfit({
@@ -38,6 +39,7 @@ export default function RootLayout({
     <html lang="en" className={`${outfit.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable}`}>
       <body>
         <GoogleAnalytics />
+        <MetaPixel />
         {children}
       </body>
     </html>

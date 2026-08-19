@@ -49,6 +49,11 @@ export default function LeadForm() {
         })
       }
 
+      // Fire custom Meta Pixel event for lead conversion tracking
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Lead')
+      }
+
       // Success! Immediately redirect to the calendar page
       router.push(`/book-call?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&business=${encodeURIComponent(formData.business)}`)
     } catch (err: any) {
