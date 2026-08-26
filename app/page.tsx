@@ -217,6 +217,96 @@ export default function Home() {
                 <p>Real-time client scaling dashboard demonstrating consistent low cost-per-result across 22 active campaigns.</p>
               </div>
             </div>
+
+            <div className="work-card">
+              <div className="work-image-container">
+                <Image 
+                  src="/work/PROOF1.png" 
+                  alt="Meta Ads Result Proof 1" 
+                  className="work-img" 
+                  width={1024} 
+                  height={576} 
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="work-info">
+                <span className="work-badge">Verified ROI</span>
+                <h3>ROAS &amp; Conversion Proof</h3>
+                <p>High-conversion marketing campaign showing verified ROI and low cost per acquisition.</p>
+              </div>
+            </div>
+
+            <div className="work-card">
+              <div className="work-image-container">
+                <Image 
+                  src="/work/PROOF2.png" 
+                  alt="Meta Ads Result Proof 2" 
+                  className="work-img" 
+                  width={1024} 
+                  height={576} 
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="work-info">
+                <span className="work-badge">Lead Generation</span>
+                <h3>Ad Spend Optimization</h3>
+                <p>Daily budget allocation proof generating a steady flow of high-intent local business leads.</p>
+              </div>
+            </div>
+
+            <div className="work-card">
+              <div className="work-image-container">
+                <Image 
+                  src="/work/PROOF3.png" 
+                  alt="Meta Ads Result Proof 3" 
+                  className="work-img" 
+                  width={1024} 
+                  height={576} 
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="work-info">
+                <span className="work-badge">Messaging Leads</span>
+                <h3>Targeted Messaging Campaigns</h3>
+                <p>Audience segmentation results yielding verified contact details and direct bookings.</p>
+              </div>
+            </div>
+
+            <div className="work-card">
+              <div className="work-image-container">
+                <Image 
+                  src="/work/PROOF4.png" 
+                  alt="Meta Ads Result Proof 4" 
+                  className="work-img" 
+                  width={1024} 
+                  height={576} 
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="work-info">
+                <span className="work-badge">Scalability</span>
+                <h3>Sales Conversion Proof</h3>
+                <p>Account dashboard demonstrating consistent monthly scalability and campaign stability.</p>
+              </div>
+            </div>
+
+            <div className="work-card">
+              <div className="work-image-container">
+                <Image 
+                  src="/work/PROOF5.png" 
+                  alt="Meta Ads Result Proof 5" 
+                  className="work-img" 
+                  width={1024} 
+                  height={576} 
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="work-info">
+                <span className="work-badge">Verification</span>
+                <h3>Meta Ads Account Performance</h3>
+                <p>Verified tracking data showing optimal CTR and cost-per-lead optimization metrics.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
