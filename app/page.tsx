@@ -129,32 +129,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="wrap">
-          <div className="section-head">
-            <span className="section-tag">How it works</span>
-            <h2>From first message to first lead</h2>
-          </div>
-          <div className="process-grid">
-            <div className="process-step">
-              <div className="process-num">01</div>
-              <h3>Discovery call</h3>
-              <p>15 minutes on Zoom or phone to understand your business and what "more clients" looks like for you.</p>
-            </div>
-            <div className="process-step">
-              <div className="process-num">02</div>
-              <h3>Build &amp; launch</h3>
-              <p>Your site goes live, your page gets set up properly, and your first ad campaign starts running.</p>
-            </div>
-            <div className="process-step">
-              <div className="process-num">03</div>
-              <h3>Track &amp; grow</h3>
-              <p>Weekly updates on leads, followers, and spend — so you always know what's working.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="section" id="work" style={{ borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
         <div className="wrap">
           <div className="section-head">
@@ -306,6 +280,32 @@ export default function Home() {
                 <h3>Meta Ads Account Performance</h3>
                 <p>Verified tracking data showing optimal CTR and cost-per-lead optimization metrics.</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <span className="section-tag">How it works</span>
+            <h2>From first message to first lead</h2>
+          </div>
+          <div className="process-grid">
+            <div className="process-step">
+              <div className="process-num">01</div>
+              <h3>Discovery call</h3>
+              <p>15 minutes on Zoom or phone to understand your business and what "more clients" looks like for you.</p>
+            </div>
+            <div className="process-step">
+              <div className="process-num">02</div>
+              <h3>Build &amp; launch</h3>
+              <p>Your site goes live, your page gets set up properly, and your first ad campaign starts running.</p>
+            </div>
+            <div className="process-step">
+              <div className="process-num">03</div>
+              <h3>Track &amp; grow</h3>
+              <p>Weekly updates on leads, followers, and spend — so you always know what's working.</p>
             </div>
           </div>
         </div>
