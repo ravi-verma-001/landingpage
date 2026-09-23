@@ -86,49 +86,6 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="section" id="services">
-        <div className="wrap">
-          <div className="section-head">
-            <span className="section-tag">What you get</span>
-            <h2>Three things every growing business needs</h2>
-            <p>Most agencies sell you one piece. We handle the full loop — the site, the page, and the ads that drive people to both.</p>
-          </div>
-
-          <div className="services-grid">
-            <div className="service-card">
-              <div className="service-icon">🌐</div>
-              <h3>Website Design</h3>
-              <p>A fast, mobile-first site built to convert visitors — not just look nice.</p>
-              <ul className="service-list">
-                <li>Built with modern tools (fast load times)</li>
-                <li>Mobile-first, since most of your traffic is on phones</li>
-                <li>Basic SEO setup included from day one</li>
-              </ul>
-            </div>
-            <div className="service-card">
-              <div className="service-icon">📱</div>
-              <h3>Social Media Handling</h3>
-              <p>Your Instagram &amp; Facebook page, managed and posted consistently.</p>
-              <ul className="service-list">
-                <li>Content calendar &amp; regular posting</li>
-                <li>Page setup, bio, and highlights optimized</li>
-                <li>Engagement tracked monthly</li>
-              </ul>
-            </div>
-            <div className="service-card">
-              <div className="service-icon">🎯</div>
-              <h3>Meta Ads Management</h3>
-              <p>Lead &amp; engagement campaigns built and optimized for your budget.</p>
-              <ul className="service-list">
-                <li>Campaign setup on Instagram &amp; Facebook</li>
-                <li>Works with budgets starting ₹300–500/day</li>
-                <li>Weekly performance reporting</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="section" id="work" style={{ borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
         <div className="wrap">
           <div className="section-head">
@@ -280,6 +237,49 @@ export default function Home() {
                 <h3>Meta Ads Account Performance</h3>
                 <p>Verified tracking data showing optimal CTR and cost-per-lead optimization metrics.</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="services">
+        <div className="wrap">
+          <div className="section-head">
+            <span className="section-tag">What you get</span>
+            <h2>Three things every growing business needs</h2>
+            <p>Most agencies sell you one piece. We handle the full loop — the site, the page, and the ads that drive people to both.</p>
+          </div>
+
+          <div className="services-grid">
+            <div className="service-card">
+              <div className="service-icon">🌐</div>
+              <h3>Website Design</h3>
+              <p>A fast, mobile-first site built to convert visitors — not just look nice.</p>
+              <ul className="service-list">
+                <li>Built with modern tools (fast load times)</li>
+                <li>Mobile-first, since most of your traffic is on phones</li>
+                <li>Basic SEO setup included from day one</li>
+              </ul>
+            </div>
+            <div className="service-card">
+              <div className="service-icon">📱</div>
+              <h3>Social Media Handling</h3>
+              <p>Your Instagram &amp; Facebook page, managed and posted consistently.</p>
+              <ul className="service-list">
+                <li>Content calendar &amp; regular posting</li>
+                <li>Page setup, bio, and highlights optimized</li>
+                <li>Engagement tracked monthly</li>
+              </ul>
+            </div>
+            <div className="service-card">
+              <div className="service-icon">🎯</div>
+              <h3>Meta Ads Management</h3>
+              <p>Lead &amp; engagement campaigns built and optimized for your budget.</p>
+              <ul className="service-list">
+                <li>Campaign setup on Instagram &amp; Facebook</li>
+                <li>Works with budgets starting ₹300–500/day</li>
+                <li>Weekly performance reporting</li>
+              </ul>
             </div>
           </div>
         </div>
