@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import LeadForm from '@/components/LeadForm'
+import WorkGallery from '@/components/WorkGallery'
 
 const waNumber = '919711190678'
 const waDisplayNumber = '+91 97111 90678'
@@ -144,154 +145,10 @@ export default function Home() {
           <div className="section-head">
             <span className="section-tag">Proven Results</span>
             <h2>Real campaign dashboards delivered for clients</h2>
-            <p>Live Meta Ads Manager proof showing lead numbers, reach, and optimized cost-per-lead.</p>
+            <p>Live Meta Ads Manager proof showing lead numbers, reach, and optimized cost-per-lead. <strong>(Click any image to enlarge and view details)</strong></p>
           </div>
 
-          <div className="work-grid">
-            <div className="work-card">
-              <div className="work-image-container">
-                <Image 
-                  src="/work/work1.webp" 
-                  alt="Meta Ads Campaign Dashboard" 
-                  className="work-img" 
-                  width={1000} 
-                  height={562} 
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="work-info">
-                <span className="work-badge">Campaign Lead Generation</span>
-                <h3>Lead Campaign (ANUSHKA)</h3>
-                <p>Delivered 2,767 messaging conversion results at ₹23.52 per lead with budget optimization.</p>
-              </div>
-            </div>
-
-            <div className="work-card">
-              <div className="work-image-container">
-                <Image 
-                  src="/work/work2.webp" 
-                  alt="Facebook Ads Manager Conversions" 
-                  className="work-img" 
-                  width={1000} 
-                  height={562} 
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="work-info">
-                <span className="work-badge">Audience &amp; Conversion Scaling</span>
-                <h3>Conversions Campaign (DEVKI)</h3>
-                <p>149k reach results delivered for active custom audience segments starting at ₹200/day budget.</p>
-              </div>
-            </div>
-
-            <div className="work-card">
-              <div className="work-image-container">
-                <Image 
-                  src="/work/work3.webp" 
-                  alt="Meta Ad Sets Operations" 
-                  className="work-img" 
-                  width={1000} 
-                  height={562} 
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="work-info">
-                <span className="work-badge">Ongoing Optimization</span>
-                <h3>Active Campaign Manager</h3>
-                <p>Real-time client scaling dashboard demonstrating consistent low cost-per-result across 22 active campaigns.</p>
-              </div>
-            </div>
-
-            <div className="work-card">
-              <div className="work-image-container">
-                <Image 
-                  src="/work/PROOF1.webp" 
-                  alt="Meta Ads Result Proof 1" 
-                  className="work-img" 
-                  width={1000} 
-                  height={416} 
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="work-info">
-                <span className="work-badge">Verified ROI</span>
-                <h3>ROAS &amp; Conversion Proof</h3>
-                <p>High-conversion marketing campaign showing verified ROI and low cost per acquisition.</p>
-              </div>
-            </div>
-
-            <div className="work-card">
-              <div className="work-image-container">
-                <Image 
-                  src="/work/PROOF2.webp" 
-                  alt="Meta Ads Result Proof 2" 
-                  className="work-img" 
-                  width={1000} 
-                  height={491} 
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="work-info">
-                <span className="work-badge">Lead Generation</span>
-                <h3>Ad Spend Optimization</h3>
-                <p>Daily budget allocation proof generating a steady flow of high-intent local business leads.</p>
-              </div>
-            </div>
-
-            <div className="work-card">
-              <div className="work-image-container">
-                <Image 
-                  src="/work/PROOF3.webp" 
-                  alt="Meta Ads Result Proof 3" 
-                  className="work-img" 
-                  width={1000} 
-                  height={486} 
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="work-info">
-                <span className="work-badge">Messaging Leads</span>
-                <h3>Targeted Messaging Campaigns</h3>
-                <p>Audience segmentation results yielding verified contact details and direct bookings.</p>
-              </div>
-            </div>
-
-            <div className="work-card">
-              <div className="work-image-container">
-                <Image 
-                  src="/work/PROOF4.webp" 
-                  alt="Meta Ads Result Proof 4" 
-                  className="work-img" 
-                  width={1000} 
-                  height={478} 
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="work-info">
-                <span className="work-badge">Scalability</span>
-                <h3>Sales Conversion Proof</h3>
-                <p>Account dashboard demonstrating consistent monthly scalability and campaign stability.</p>
-              </div>
-            </div>
-
-            <div className="work-card">
-              <div className="work-image-container">
-                <Image 
-                  src="/work/PROOF5.webp" 
-                  alt="Meta Ads Result Proof 5" 
-                  className="work-img" 
-                  width={1000} 
-                  height={474} 
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="work-info">
-                <span className="work-badge">Verification</span>
-                <h3>Meta Ads Account Performance</h3>
-                <p>Verified tracking data showing optimal CTR and cost-per-lead optimization metrics.</p>
-              </div>
-            </div>
-          </div>
+          <WorkGallery />
         </div>
       </section>
 
