@@ -4,11 +4,7 @@ import React from 'react'
 import Script from 'next/script'
 
 export default function MetaPixel() {
-  const pixelId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID
-
-  if (!pixelId) {
-    return null
-  }
+  const pixelId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID || '1095918089556029'
 
   return (
     <>
