@@ -7,10 +7,10 @@ const filePath = path.join(dataDir, 'leads.json')
 export interface Lead {
   id: string
   name: string
-  business: string
+  business?: string
   phone: string
-  email: string
-  needs: string[]
+  email?: string
+  needs?: string[]
   createdAt: string
   booked: boolean
   bookingDate?: string
@@ -58,18 +58,23 @@ export function saveLeads(leads: Lead[]): void {
   }
 }
 
-
 export function addLead(leadData: Omit<Lead, 'id' | 'createdAt' | 'booked' | 'sequenceStatus' | 'emailsSent' | 'lastSequenceTime'>): Lead {
   const leads = getLeads()
   
-  // Prevent duplicate lead additions for same email
-  const existingLead = leads.find(l => l.email.toLowerCase() === leadData.email.toLowerCase())
+  // Prevent duplicate lead additions for same phone or email
+  const existingLead = leads.find(l => 
+    (leadData.phone && l.phone === leadData.phone) || 
+    (leadData.email && l.email && l.email.toLowerCase() === leadData.email.toLowerCase())
+  )
   if (existingLead) {
     return existingLead
   }
 
   const newLead: Lead = {
     ...leadData,
+    business: leadData.business || '',
+    email: leadData.email || '',
+    needs: leadData.needs || [],
     id: Math.random().toString(36).substring(2, 9),
     createdAt: new Date().toISOString(),
     booked: false,
@@ -85,7 +90,7 @@ export function addLead(leadData: Omit<Lead, 'id' | 'createdAt' | 'booked' | 'se
 
 export function markLeadAsBooked(email: string, date: string, time: string): boolean {
   const leads = getLeads()
-  const index = leads.findIndex(l => l.email.toLowerCase() === email.toLowerCase())
+  const index = leads.findIndex(l => l.email && l.email.toLowerCase() === email.toLowerCase())
   
   if (index !== -1) {
     leads[index].booked = true

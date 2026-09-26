@@ -18,8 +18,8 @@ export async function GET(request: Request) {
     for (let i = 0; i < leads.length; i++) {
       const lead = leads[i]
 
-      // Ignore booked or finished sequence leads
-      if (lead.booked || lead.sequenceStatus !== 'pending') {
+      // Ignore leads without email, or booked, or finished sequence leads
+      if (!lead.email || lead.booked || lead.sequenceStatus !== 'pending') {
         continue
       }
 
@@ -27,7 +27,7 @@ export async function GET(request: Request) {
       const timeElapsed = now.getTime() - createdTime
 
       const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://arvianmarketing.shop')
-      const calendarLink = `${baseUrl}/book-call?name=${encodeURIComponent(lead.name)}&email=${encodeURIComponent(lead.email)}&business=${encodeURIComponent(lead.business)}`
+      const calendarLink = `${baseUrl}/book-call?name=${encodeURIComponent(lead.name)}&email=${encodeURIComponent(lead.email || '')}&business=${encodeURIComponent(lead.business || '')}`
 
       // 1. Send Email 2 (after 24 hours) if it hasn't been sent yet
       if (!lead.emailsSent.includes('email2')) {

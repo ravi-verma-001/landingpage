@@ -4,53 +4,53 @@ import { sendEmail, getEmail1Content } from '@/lib/email'
 
 export async function POST(request: Request) {
   try {
-    const { name, business, phone, email, needs } = await request.json()
+    const { name, phone, business = '', email = '', needs = [] } = await request.json()
 
-    if (!name || !business || !phone || !email) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    if (!name || !phone) {
+      return NextResponse.json({ error: 'Please provide both your name and WhatsApp number.' }, { status: 400 })
     }
 
     // Save lead to local db
     const lead = addLead({ name, business, phone, email, needs })
 
-    // Generate custom booking calendar link to prefill their details
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://arvianmarketing.shop')
-    const calendarLink = `${baseUrl}/book-call?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&business=${encodeURIComponent(business)}`
+    // Generate custom booking calendar link if email is provided
+    if (email) {
+      const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://arvianmarketing.shop')
+      const calendarLink = `${baseUrl}/book-call?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&business=${encodeURIComponent(business)}`
 
-    // Trigger Email 1 (Immediate Safety Net)
-    const emailBody = getEmail1Content(name, calendarLink)
-    await sendEmail({
-      to: email,
-      subject: 'Next steps for your growth strategy',
-      body: emailBody,
-    })
+      // Trigger Email 1 (Immediate Safety Net)
+      const emailBody = getEmail1Content(name, calendarLink)
+      await sendEmail({
+        to: email,
+        subject: 'Next steps for your growth strategy',
+        body: emailBody,
+      }).catch(err => console.warn('Could not send client email:', err))
 
-    // Log tracking for email sequence
-    const leads = getLeads()
-    const index = leads.findIndex((l: any) => l.email.toLowerCase() === email.toLowerCase())
-    if (index !== -1) {
-      leads[index].emailsSent.push('email1')
-      leads[index].lastSequenceTime = new Date().toISOString()
-      saveLeads(leads)
+      // Log tracking for email sequence
+      const leads = getLeads()
+      const index = leads.findIndex((l: any) => l.email && l.email.toLowerCase() === email.toLowerCase())
+      if (index !== -1) {
+        leads[index].emailsSent.push('email1')
+        leads[index].lastSequenceTime = new Date().toISOString()
+        saveLeads(leads)
+      }
     }
 
     // Dispatch notification email to the owner
     const ownerEmail = process.env.OWNER_EMAIL || process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
     await sendEmail({
       to: ownerEmail,
-      subject: `[New Lead Alert] ${name} from ${business}`,
-      body: `You have a new lead!
+      subject: `[New Lead Alert] ${name} (${phone})`,
+      body: `You have a new inquiry!
 
 Details:
 Name: ${name}
-Business Name: ${business}
-WhatsApp: ${phone}
-Email: ${email}
-Selected Services: ${needs.length ? needs.join(', ') : 'Not specified'}
-
-A safety net email (Email 1) has been sent to the client with the strategy session scheduler link.
+WhatsApp Number: ${phone}
+Business Name: ${business || 'Not specified (to collect on chat)'}
+Email: ${email || 'Not specified'}
+Selected Services: ${needs && needs.length ? needs.join(', ') : 'Landing Page / Meta Ads Inquiry'}
 `,
-    })
+    }).catch(err => console.warn('Could not send owner alert email:', err))
 
     // Dispatch webhook to Google Sheets / Zapier if configured
     const webhookUrl = process.env.WEBHOOK_URL
