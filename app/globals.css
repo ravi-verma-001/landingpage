@@ -30,6 +30,7 @@ body {
   font-family: var(--font-plus-jakarta), sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1, h2, h3 {
@@ -47,9 +48,10 @@ a {
 }
 
 .wrap {
-  max-width: 1120px;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
 /* Top bar */
@@ -637,8 +639,9 @@ footer {
 }
 
 .hero-blast-wrapper .topbar {
+  width: 100%;
   border-bottom: 1px solid var(--line);
-  padding: 16px 0;
+  padding: 14px 0;
 }
 
 .hero-blast-wrapper .brand {
@@ -660,6 +663,68 @@ footer {
 .top-cta-blast:hover {
   background: var(--accent);
   border-color: var(--accent);
+}
+
+/* Hero Banner Styles */
+.hero-banner-wrapper {
+  margin: 32px 0 20px 0;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-banner-link {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -12px rgba(99, 102, 241, 0.2), 0 8px 24px -8px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  background: #ffffff;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.hero-banner-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 60px -12px rgba(99, 102, 241, 0.3), 0 12px 28px -6px rgba(15, 23, 42, 0.16);
+}
+
+.hero-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.hero-banner-trust {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0 4px;
+}
+
+@media (max-width: 768px) {
+  .hero-banner-wrapper {
+    margin: 20px 0 16px 0;
+  }
+  .hero-banner-trust {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hero-banner-link {
+    border-radius: 12px;
+  }
 }
 
 .hero-blast-grid {

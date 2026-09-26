@@ -12,34 +12,30 @@ export default function Home() {
               <Image 
                 src="/logo.webp" 
                 alt="Arvian Marketing Logo" 
-                width={232} 
-                height={60} 
-                style={{ objectFit: 'contain' }} 
+                width={200} 
+                height={52} 
+                style={{ objectFit: 'contain', width: 'auto', height: '48px' }} 
                 priority 
               />
             </div>
             <a className="top-cta-blast" href="#growth-plan">Get Free Growth Plan</a>
           </div>
 
-          <div className="hero-blast-grid">
-            <div className="hero-blast-left animate-fade-in">
+          {/* Hero Banner Section */}
+          <div className="hero-banner-wrapper animate-fade-in">
+            <a href="#growth-plan" className="hero-banner-link" title="Click to Get Free Growth Plan - Ravi Verma">
               <Image 
-                src="/founder_portrait.webp" 
-                alt="ArvianMarketing Founder" 
-                className="hero-blast-img" 
-                width={440} 
-                height={587} 
+                src="/hero-banner.png" 
+                alt="Ravi Verma - Meta Ads Expert & Web Designer" 
+                className="hero-banner-img" 
+                width={1920} 
+                height={1080} 
                 priority 
-                sizes="(max-width: 768px) 100vw, 440px"
+                sizes="100vw"
               />
-            </div>
+            </a>
 
-            <div className="hero-blast-right animate-fade-in delay-1">
-              <h1>Get a website, a social media presence, and paying clients — <span>without hiring three agencies.</span></h1>
-              <p className="sub">We build your website, run your Instagram &amp; Facebook page, and manage Meta Ads that bring real leads — all handled by one partner who actually replies.</p>
-              
-              <a className="blast-cta-btn" href="#growth-plan">Get My Free Growth Plan →</a>
-
+            <div className="hero-banner-trust">
               <div className="trustpilot-widget">
                 <span>Excellent</span>
                 <div className="trustpilot-stars">
@@ -49,8 +45,10 @@ export default function Home() {
                   <div className="trustpilot-star">★</div>
                   <div className="trustpilot-star">★</div>
                 </div>
-                <span>Trustpilot</span>
+                <span>Trustpilot (4.9/5 based on client reviews)</span>
               </div>
+
+              <a className="blast-cta-btn" href="#growth-plan">Get My Free Growth Plan →</a>
             </div>
           </div>
         </div>
