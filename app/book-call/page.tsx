@@ -66,10 +66,10 @@ function BookCallContent() {
             ArvianMarketing
           </div>
           <h1 style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '36px', fontWeight: 'bold', color: '#0F172A', marginBottom: '10px' }}>
-            Divine Code Strategy Session
+            Meta Ads Strategy Session
           </h1>
           <p style={{ color: '#475569', fontSize: '16px' }}>
-            30-minute free growth audit for {name ? <strong>{name}</strong> : 'your business'}
+            30-minute 1-on-1 strategy session with Ravi for {name ? <strong>{name}</strong> : 'your business'}
           </p>
         </div>
 

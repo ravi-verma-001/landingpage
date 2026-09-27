@@ -4,20 +4,38 @@ import { sendEmail, getEmail1Content } from '@/lib/email'
 
 export async function POST(request: Request) {
   try {
-    const { name, phone, business = '', email = '', needs = [] } = await request.json()
+    const { 
+      name, 
+      phone, 
+      business = '', 
+      businessType = '', 
+      budget = '', 
+      lookingFor = '', 
+      email = '', 
+      needs = [] 
+    } = await request.json()
 
     if (!name || !phone) {
       return NextResponse.json({ error: 'Please provide both your name and WhatsApp number.' }, { status: 400 })
     }
 
     // Save lead to local db
-    const lead = addLead({ name, business, phone, email, needs })
+    const lead = addLead({ 
+      name, 
+      business, 
+      businessType, 
+      budget, 
+      lookingFor, 
+      phone, 
+      email, 
+      needs 
+    })
 
-    // Generate custom booking calendar link if email is provided
+    // Generate custom booking calendar link if email or booking parameter is needed
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://arvianmarketing.shop')
+    const calendarLink = `${baseUrl}/book-call?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&business=${encodeURIComponent(business)}`
+
     if (email) {
-      const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://arvianmarketing.shop')
-      const calendarLink = `${baseUrl}/book-call?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&business=${encodeURIComponent(business)}`
-
       // Trigger Email 1 (Immediate Safety Net)
       const emailBody = getEmail1Content(name, calendarLink)
       await sendEmail({
@@ -40,15 +58,18 @@ export async function POST(request: Request) {
     const ownerEmail = process.env.OWNER_EMAIL || process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
     await sendEmail({
       to: ownerEmail,
-      subject: `[New Lead Alert] ${name} (${phone})`,
-      body: `You have a new inquiry!
+      subject: `[Meta Ads Lead] ${name} - ${business || 'Business'} (${budget || 'Budget N/A'})`,
+      body: `You have a new qualified Meta Ads inquiry!
 
 Details:
-Name: ${name}
-WhatsApp Number: ${phone}
-Business Name: ${business || 'Not specified (to collect on chat)'}
-Email: ${email || 'Not specified'}
-Selected Services: ${needs && needs.length ? needs.join(', ') : 'Landing Page / Meta Ads Inquiry'}
+• Name: ${name}
+• WhatsApp Number: ${phone}
+• Business Name: ${business || 'Not specified'}
+• Business Type: ${businessType || 'Not specified'}
+• Monthly Ad Budget: ${budget || 'Not specified'}
+• Looking For: ${lookingFor || 'Meta Ads Growth'}
+• Email: ${email || 'Not specified'}
+• Submission Time: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
 `,
     }).catch(err => console.warn('Could not send owner alert email:', err))
 
@@ -62,10 +83,12 @@ Selected Services: ${needs && needs.length ? needs.join(', ') : 'Landing Page / 
           body: JSON.stringify({
             event: 'lead_captured',
             name,
-            business,
             phone,
+            business,
+            businessType,
+            budget,
+            lookingFor,
             email,
-            needs: needs.join(', '),
             createdAt: new Date().toISOString()
           })
         })

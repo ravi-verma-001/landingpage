@@ -8,6 +8,9 @@ export interface Lead {
   id: string
   name: string
   business?: string
+  businessType?: string
+  budget?: string
+  lookingFor?: string
   phone: string
   email?: string
   needs?: string[]
@@ -73,6 +76,9 @@ export function addLead(leadData: Omit<Lead, 'id' | 'createdAt' | 'booked' | 'se
   const newLead: Lead = {
     ...leadData,
     business: leadData.business || '',
+    businessType: leadData.businessType || '',
+    budget: leadData.budget || '',
+    lookingFor: leadData.lookingFor || '',
     email: leadData.email || '',
     needs: leadData.needs || [],
     id: Math.random().toString(36).substring(2, 9),

@@ -26,8 +26,8 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'ArvianMarketing — Websites, Social Media & Meta Ads That Bring Clients',
-  description: 'We build your website, run your Instagram & Facebook page, and manage Meta Ads that bring real leads — all handled by one partner.',
+  title: 'Meta Ads Management Services | Arvian Marketing',
+  description: 'Generate more qualified leads with Meta Ads. Arvian Marketing helps businesses with Meta Ads strategy, campaign management, landing pages and conversion-focused funnels.',
 }
 
 export default function RootLayout({
