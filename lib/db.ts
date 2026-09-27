@@ -94,9 +94,19 @@ export function addLead(leadData: Omit<Lead, 'id' | 'createdAt' | 'booked' | 'se
   return newLead
 }
 
-export function markLeadAsBooked(email: string, date: string, time: string): boolean {
+export function markLeadAsBooked(
+  identifier: { email?: string; phone?: string; name?: string; business?: string } | string, 
+  date: string, 
+  time: string
+): boolean {
   const leads = getLeads()
-  const index = leads.findIndex(l => l.email && l.email.toLowerCase() === email.toLowerCase())
+  const idObj = typeof identifier === 'string' ? { email: identifier } : identifier
+  
+  const index = leads.findIndex(l => 
+    (idObj.email && l.email && l.email.toLowerCase() === idObj.email.toLowerCase()) ||
+    (idObj.phone && l.phone && l.phone.replace(/[^0-9]/g, '') === idObj.phone.replace(/[^0-9]/g, '')) ||
+    (idObj.name && l.name && l.name.toLowerCase() === idObj.name.toLowerCase())
+  )
   
   if (index !== -1) {
     leads[index].booked = true
@@ -106,5 +116,23 @@ export function markLeadAsBooked(email: string, date: string, time: string): boo
     saveLeads(leads)
     return true
   }
-  return false
+
+  // If lead wasn't found in records, create a confirmed booking record
+  const newBooking: Lead = {
+    id: Math.random().toString(36).substring(2, 9),
+    name: idObj.name || 'Direct Strategy Session Lead',
+    phone: idObj.phone || '',
+    email: idObj.email || '',
+    business: idObj.business || '',
+    createdAt: new Date().toISOString(),
+    booked: true,
+    bookingDate: date,
+    bookingTime: time,
+    sequenceStatus: 'completed',
+    emailsSent: [],
+    lastSequenceTime: null
+  }
+  leads.push(newBooking)
+  saveLeads(leads)
+  return true
 }
